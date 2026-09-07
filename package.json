@@ -1,0 +1,27 @@
+{
+  "name": "modern-visibility",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "typecheck": "tsc -b",
+    "test": "turbo test",
+    "clean": "turbo clean",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=11 <12",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "turbo": "^2.10.12",
+    "turborepo": "^0.0.1",
+    "typescript": "^6.0.3"
+  }
+}
