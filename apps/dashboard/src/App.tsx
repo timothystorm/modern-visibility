@@ -1,9 +1,10 @@
-import '@modern-visibility/ping-module'
+import '@modern-visibility/visibility-modules'
 
 function App() {
 
   return (
     <>
+      <stats-module />
       <ping-module />
     </>
   )

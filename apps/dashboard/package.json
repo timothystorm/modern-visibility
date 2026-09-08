@@ -11,7 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@modern-visibility/ping-module": "workspace:*",
+    "@modern-visibility/visibility-modules": "workspace:*",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

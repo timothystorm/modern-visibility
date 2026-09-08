@@ -216,9 +216,9 @@ importers:
 
   apps/dashboard:
     dependencies:
-      '@modern-visibility/ping-module':
+      '@modern-visibility/visibility-modules':
         specifier: workspace:*
-        version: link:../../packages/ping-module
+        version: link:../../packages/visibility-modules
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -266,7 +266,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(@types/node@24.13.3)(jsdom@30.0.1)(vite@8.2.2(@types/node@24.13.3))
 
-  packages/ping-module:
+  packages/visibility-modules:
     dependencies:
       lit:
         specifier: ^3.3.3

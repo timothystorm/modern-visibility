@@ -2,6 +2,6 @@
   "files": [],
   "references": [
     { "path": "./apps/dashboard" },
-    { "path": "./packages/ping-module" }
+    { "path": "./packages/visibility-modules" }
   ]
 }
