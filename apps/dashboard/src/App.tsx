@@ -1,4 +1,3 @@
-import './App.css'
 import '@modern-visibility/ping-module'
 
 function App() {
