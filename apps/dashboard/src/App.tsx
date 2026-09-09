@@ -4,6 +4,7 @@ function App() {
 
   return (
     <>
+      <milestone-module />
       <stats-module />
       <ping-module />
     </>

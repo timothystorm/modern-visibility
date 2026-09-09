@@ -271,6 +271,9 @@ importers:
       lit:
         specifier: ^3.3.3
         version: 3.3.3
+      zod:
+        specifier: ^4.5.4
+        version: 4.5.4
     devDependencies:
       tsdown:
         specifier: ^0.23.0
