@@ -1,5 +1,5 @@
 import type { DetailedHTMLProps, HTMLAttributes } from 'react'
-import type { MilestoneModule, PingModule, StatsModule } from '@modern-visibility'
+import type { MilestoneModule, PingModule, StatsModule } from '@fedex-prism'
 
 declare module 'react' {
   namespace JSX {

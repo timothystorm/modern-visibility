@@ -1,5 +1,5 @@
 {
-  "name": "modern-visibility",
+  "name": "fedex-prism",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -10,12 +10,13 @@
     "typecheck": "tsc -b",
     "test": "turbo test",
     "clean": "turbo clean",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "generate": "plop"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": ">=11 <12",
+      "version": "^12.4.1",
       "onFail": "download"
     }
   },

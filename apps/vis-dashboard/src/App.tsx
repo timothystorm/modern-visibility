@@ -1,4 +1,4 @@
-import '@modern-visibility/visibility-modules'
+import '@fedex-prism/visibility-modules'
 
 function App() {
 

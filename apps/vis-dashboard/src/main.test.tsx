@@ -2,7 +2,7 @@
 
 import { expect, test, vi } from 'vitest'
 
-test('renders the ping module into the dashboard root', async () => {
+test('renders the ping module into the vis-dashboard root', async () => {
   document.body.innerHTML = '<div id="root"></div>'
 
   await import('./main')

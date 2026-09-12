@@ -1,5 +1,5 @@
 {
-  "name": "dashboard",
+  "name": "@fedex-prism/dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@modern-visibility/visibility-modules": "workspace:*",
+    "@fedex-prism/visibility-modules": "workspace:*",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
