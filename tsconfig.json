@@ -1,6 +1,7 @@
 {
   "files": [],
   "references": [
+    { "path": "./apps/vis-browser" },
     { "path": "./apps/vis-dashboard"},
     { "path": "./packages/runtime-internal" },
     { "path": "./packages/runtime-core" },

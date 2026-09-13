@@ -1,0 +1,21 @@
+{
+  "name": "@fedex-prism/vis-browser",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsdown",
+    "dev": "tsdown --watch --no-clean",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@fedex-prism/runtime-core": "workspace:*",
+    "@fedex-prism/runtime-internal": "workspace:*",
+    "@fedex-prism/runtime-external": "workspace:*",
+    "@fedex-prism/visibility-modules": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "^0.23.0",
+    "typescript": "^6.0.3"
+  }
+}

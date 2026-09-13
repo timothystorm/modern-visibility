@@ -4,15 +4,17 @@ import { installFdxRuntime } from '@fedex-prism/runtime-core'
 import { createFdxRuntimeInternal } from '@fedex-prism/runtime-internal'
 // import { createFdxRuntimeExternal } from '@fedex-prism/runtime-external'
 import './index.css'
-import App from './App.tsx'
 
-// Install the FedEx Visibility Runtime into the global scope. This should be done before rendering the application to
-// ensure that the runtime is available for any components that may need it.
+// Install the FedEx Visibility Runtime into the global scope before any modules that depend on it mount.
 installFdxRuntime(createFdxRuntimeInternal())
-// installFdxRuntime(createFdxRuntimeExternal())
+// installFdxRuntime(createFdxRuntimeExternal({client_id: '000-111-222'}))
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const root = createRoot(document.getElementById('root')!)
+
+void import('./App.tsx').then(({ default: App }) => {
+  root.render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+})

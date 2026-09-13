@@ -1,4 +1,4 @@
-import type {Shipment} from '../Shipment'
+import type {Shipment, ShipmentDetail } from '../domain/Shipment'
 
 /**
  * The NextToken type represents a pagination token used to retrieve the next page of shipments.
@@ -21,16 +21,18 @@ export interface IterableShipments {
 export interface ShipmentsService {
   /**
    * Reads a list of shipments. If a nextToken is provided, it retrieves the next page of shipments.
+   *
    * @param nextToken - An optional token to retrieve the next page of shipments.
    * @return A promise that resolves to an IterableShipments object containing the list of shipments and an optional
    * nextToken for pagination.
    */
-  readNextShipments(nextToken?: NextToken): Promise<IterableShipments>;
+  readAllShipments(nextToken?: NextToken): Promise<IterableShipments>;
 
   /**
-   * Reads a specific shipment details by its ID.
-   * @param shipmentId - The ID of the shipment to retrieve.
-   * @return A promise that resolves to the Shipment object.
+   * Reads a specific shipment details by its tracking ID.
+   *
+   * @param trackId - The ID of the shipment to retrieve.
+   * @return A promise that resolves to the Shipment object or null if the shipment is not found.
    */
-  readShipment(shipmentId: string): Promise<Shipment>;
+  readShipmentByTrackId(trackId: string): Promise<ShipmentDetail | null>;
 }

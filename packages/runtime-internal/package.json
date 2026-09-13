@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "dependencies": {
-    "@fedex-prism/runtime-core": "workspace:*"
-  },
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
@@ -23,5 +20,8 @@
   },
   "devDependencies": {
     "tsdown": "^0.23.0"
+  },
+  "dependencies": {
+    "@fedex-prism/runtime-core": "workspace:*"
   }
 }

@@ -1,11 +1,23 @@
 import type {ShipmentsService} from './services/ShipmentsService'
+import {UiIntent} from './intent/UiIntent'
+
+export interface RuntimeContract {
+  getUiIntent(): UiIntent
+  getShipmentsService(): Promise<ShipmentsService>
+}
 
 /**
  * The RuntimeContract interface defines the contract for the FedEx Visibility Runtime. It provides access to various
  * services.
  */
-export interface RuntimeContract {
-  getShipmentsService(): Promise<ShipmentsService>
+export abstract class CoreRuntimeContract implements RuntimeContract {
+  private _uiIntent?: UiIntent
+
+  getUiIntent(): UiIntent {
+    return (this._uiIntent ??= new UiIntent())
+  }
+
+  abstract getShipmentsService(): Promise<ShipmentsService>
 }
 
 // The RUNTIME_KEY symbol is used to store the runtime instance in the global scope. It is a unique symbol to avoid
@@ -42,4 +54,37 @@ export function installFdxRuntime(runtime: RuntimeContract | Promise<RuntimeCont
     throw new Error('FedEx Runtime has already been initialized.')
   }
   globalRuntime[RUNTIME_KEY] = Promise.resolve(runtime)
+}
+
+// The RuntimeOverrides type is a partial version of the RuntimeContract interface. It allows for overriding specific
+// methods of the runtime contract.
+export type RuntimeOverrides = Partial<RuntimeContract>
+
+/**
+ * Creates a new RuntimeContract that combines a base runtime with optional overrides. If an override is provided for a
+ * method, it will be used; otherwise, the base method will be called.
+ *
+ * @example
+ * const base = createFdxRuntimeInternal()
+ * const customShipmentsService = new MyShipmentsService()
+ * const runtime = withRuntimeOverrides(base, { getShipmentsService: () => customShipmentsService })
+ * installFdxRuntime(runtime)
+ *
+ * @param base - The base runtime contract to use as the default implementation.
+ * @param overrides - An object containing optional overrides for the runtime contract methods.
+ */
+export function withRuntimeOverrides(
+    base: RuntimeContract,
+    overrides: RuntimeOverrides
+): RuntimeContract {
+  return {
+    getUiIntent: () =>
+        overrides.getUiIntent
+            ? overrides.getUiIntent()
+            : base.getUiIntent(),
+    getShipmentsService: () =>
+        overrides.getShipmentsService
+            ? overrides.getShipmentsService()
+            : base.getShipmentsService(),
+  }
 }

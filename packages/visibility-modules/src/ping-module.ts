@@ -22,9 +22,10 @@ export class PingModule extends LitElement {
 
   private async loadShipments(): Promise<void> {
     try {
+      console.log('🚀 Loading Shipments')
       const runtime = await getFdxRuntime()
       const shipmentsService = await runtime.getShipmentsService()
-      const result = await shipmentsService.readNextShipments()
+      const result = await shipmentsService.readAllShipments()
       this.shipmentCount = result.shipments.length
       this.shipmentId = result.shipments[0]?.id ?? null
     } catch (error) {

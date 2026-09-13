@@ -1,9 +1,9 @@
-import type { RuntimeContract, ShipmentsService } from '@fedex-prism/runtime-core'
+import { CoreRuntimeContract, type RuntimeContract, type ShipmentsService } from '@fedex-prism/runtime-core'
 
-export class RuntimeInternal implements RuntimeContract {
+export class RuntimeInternal extends CoreRuntimeContract {
   private shipmentsService?: Promise<ShipmentsService>
 
-  getShipmentsService(): Promise<ShipmentsService> {
+  override getShipmentsService(): Promise<ShipmentsService> {
     return (this.shipmentsService ??= import('./services/ShipmentsInternalService').then(
       ({ ShipmentsInternalService }) => new ShipmentsInternalService(),
     ))
@@ -11,5 +11,6 @@ export class RuntimeInternal implements RuntimeContract {
 }
 
 export function createFdxRuntimeInternal(): RuntimeContract {
+  console.debug(`☑️ Creating FedEx Runtime Internal`)
   return new RuntimeInternal()
 }

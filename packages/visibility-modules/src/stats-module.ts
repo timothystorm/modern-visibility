@@ -1,8 +1,13 @@
 import { LitElement, css, html } from 'lit'
-import { customElement, state } from 'lit/decorators.js'
+import { customElement, property } from 'lit/decorators.js'
+import {getFdxRuntime, UiIntent} from '@fedex-prism/runtime-core'
+
 
 @customElement('fdx-stats-module')
 export class StatsModule extends LitElement {
+  @property()
+  accessor message: string | null = ""
+
   static styles = css`
     :host {
       display: block;
@@ -16,10 +21,18 @@ export class StatsModule extends LitElement {
     }
   `
 
+  async connectedCallback(): void {
+    super.connectedCallback();
+    const runtime = await getFdxRuntime()
+    runtime.getUiIntent()?.subscribe((intent) => {
+      this.message = `${intent}`
+    })
+  }
+
   render() {
     return html`
       <div class="container">
-        <p>Hello, World</p>
+        <p>Milestone: ${this.message}</p>
       </div>
     `
   }

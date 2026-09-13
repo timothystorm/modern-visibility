@@ -173,6 +173,28 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
+  apps/vis-browser:
+    dependencies:
+      '@fedex-prism/runtime-core':
+        specifier: workspace:*
+        version: link:../../packages/runtime-core
+      '@fedex-prism/runtime-external':
+        specifier: workspace:*
+        version: link:../../packages/runtime-external
+      '@fedex-prism/runtime-internal':
+        specifier: workspace:*
+        version: link:../../packages/runtime-internal
+      '@fedex-prism/visibility-modules':
+        specifier: workspace:*
+        version: link:../../packages/visibility-modules
+    devDependencies:
+      tsdown:
+        specifier: ^0.23.0
+        version: 0.23.0(typescript@6.0.3)
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
   apps/vis-dashboard:
     dependencies:
       '@fedex-prism/runtime-core':
