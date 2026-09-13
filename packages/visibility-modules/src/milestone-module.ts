@@ -5,7 +5,7 @@ import { MilestoneEnum, type Milestone } from './domain/milestone'
 @customElement('milestone-module')
 export class MilestoneModule extends LitElement {
   @property()
-  accessor milestone: Milestone | null = null;
+  milestone: Milestone | null = null;
 
   private handleMilestoneChange(event: Event) {
     const select = event.currentTarget

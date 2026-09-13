@@ -1,0 +1,27 @@
+{
+  "name": "@fedex-prism/visibility-domain",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "tsdown": "^0.23.0"
+  },
+  "dependencies": {
+    "zod": "^4.6.2"
+  }
+}

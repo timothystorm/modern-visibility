@@ -4,7 +4,7 @@ import { customElement, state } from 'lit/decorators.js'
 @customElement('ping-module')
 export class PingModule extends LitElement {
   @state()
-  accessor now = new Date();
+  now = new Date();
 
   static styles = css`
     :host {
