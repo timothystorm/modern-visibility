@@ -13,7 +13,7 @@ export class MilestoneModule extends LitElement {
       throw new TypeError('Milestone change must come from a select element')
     }
 
-    this.milestone = MilestoneEnum.parse(select.value)
+    this.milestone = select.value === '' ? null : MilestoneEnum.parse(select.value)
   }
 
   render() {
