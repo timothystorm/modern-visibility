@@ -5,7 +5,7 @@ import { MilestoneEnum, type Milestone } from './domain/milestone'
 @customElement('milestone-module')
 export class MilestoneModule extends LitElement {
   @property()
-  milestone: Milestone | null = null;
+  accessor milestone: Milestone | null = null;
 
   private handleMilestoneChange(event: Event) {
     const select = event.currentTarget
@@ -13,7 +13,7 @@ export class MilestoneModule extends LitElement {
       throw new TypeError('Milestone change must come from a select element')
     }
 
-    this.milestone = MilestoneEnum.parse(select.value)
+    this.milestone = select.value === '' ? null : MilestoneEnum.parse(select.value)
   }
 
   render() {
