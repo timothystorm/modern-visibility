@@ -5,13 +5,13 @@
   "description": "",
   "keywords": [],
   "scripts": {
-    "dev": "turbo dev",
+    "dev": "turbo build & turbo dev",
     "build": "turbo build",
     "typecheck": "tsc -b",
     "test": "turbo test",
     "clean": "turbo clean",
     "preinstall": "npx only-allow pnpm",
-    "generate": "plop"
+    "generate": "turbo gen package"
   },
   "devEngines": {
     "packageManager": {

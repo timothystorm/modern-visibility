@@ -1,6 +1,7 @@
 {
-  "name": "@fedex-prism/visibility-modules",
+  "name": "@fedex-prism/runtime-external",
   "version": "0.0.1",
+  "private": true,
   "type": "module",
   "exports": {
     ".": {
@@ -17,12 +18,10 @@
     "dev": "tsdown --watch --no-clean",
     "clean": "rm -rf dist"
   },
-  "dependencies": {
-    "lit": "^3.3.3",
-    "zod": "^4.5.4",
-    "@fedex-prism/runtime-core": "workspace:*"
-  },
   "devDependencies": {
     "tsdown": "^0.23.0"
+  },
+  "dependencies": {
+    "@fedex-prism/runtime-core": "workspace:*"
   }
 }

@@ -11,9 +11,12 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@fedex-prism/runtime-internal": "workspace:*",
+    "@fedex-prism/runtime-external": "workspace:*",
     "@fedex-prism/visibility-modules": "workspace:*",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "@fedex-prism/runtime-core": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

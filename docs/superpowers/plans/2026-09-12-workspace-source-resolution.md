@@ -25,7 +25,7 @@
 **Interfaces:**
 - Produces: `@fedex-prism/*` → `./packages/*/src/index.ts` for TypeScript resolution.
 
-- [ ] Confirm TypeScript currently resolves `@fedex-prism/visibility-domain` to `dist/index.d.mts`.
+- [ ] Confirm TypeScript currently resolves `@fedex-prism/runtime-core` to `dist/index.d.mts`.
 - [ ] Add:
 
 ```json
@@ -35,6 +35,6 @@
 ```
 
 - [ ] Confirm `tsc --traceResolution` resolves the same import to
-  `packages/visibility-domain/src/index.ts`.
+  `packages/runtime-core/src/index.ts`.
 - [ ] Run the affected package type-check and build.
 - [ ] Do not stage, commit, or push.

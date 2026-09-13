@@ -1,5 +1,5 @@
 {
-  "name": "@fedex-prism/visibility-domain",
+  "name": "@fedex-prism/runtime-core",
   "version": "0.0.1",
   "private": true,
   "type": "module",

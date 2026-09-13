@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { MilestoneEnum, type Milestone } from './domain/milestone'
 
-@customElement('milestone-module')
+@customElement('fdx-milestone-module')
 export class MilestoneModule extends LitElement {
   @property()
   milestone: Milestone | null = null;

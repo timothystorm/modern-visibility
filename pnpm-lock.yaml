@@ -175,6 +175,15 @@ importers:
 
   apps/vis-dashboard:
     dependencies:
+      '@fedex-prism/runtime-core':
+        specifier: workspace:*
+        version: link:../../packages/runtime-core
+      '@fedex-prism/runtime-external':
+        specifier: workspace:*
+        version: link:../../packages/runtime-external
+      '@fedex-prism/runtime-internal':
+        specifier: workspace:*
+        version: link:../../packages/runtime-internal
       '@fedex-prism/visibility-modules':
         specifier: workspace:*
         version: link:../../packages/visibility-modules
@@ -225,17 +234,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(@types/node@24.13.3)(jsdom@30.0.1)(vite@8.2.2(@types/node@24.13.3))
 
-  packages/runtime-contract:
-    dependencies:
-      '@fedex-prism/visibility-domain':
-        specifier: workspace:*
-        version: link:../visibility-domain
-    devDependencies:
-      tsdown:
-        specifier: ^0.23.0
-        version: 0.23.0(typescript@6.0.3)
-
-  packages/visibility-domain:
+  packages/runtime-core:
     dependencies:
       zod:
         specifier: ^4.6.2
@@ -245,8 +244,31 @@ importers:
         specifier: ^0.23.0
         version: 0.23.0(typescript@6.0.3)
 
+  packages/runtime-external:
+    dependencies:
+      '@fedex-prism/runtime-core':
+        specifier: workspace:*
+        version: link:../runtime-core
+    devDependencies:
+      tsdown:
+        specifier: ^0.23.0
+        version: 0.23.0(typescript@6.0.3)
+
+  packages/runtime-internal:
+    dependencies:
+      '@fedex-prism/runtime-core':
+        specifier: workspace:*
+        version: link:../runtime-core
+    devDependencies:
+      tsdown:
+        specifier: ^0.23.0
+        version: 0.23.0(typescript@6.0.3)
+
   packages/visibility-modules:
     dependencies:
+      '@fedex-prism/runtime-core':
+        specifier: workspace:*
+        version: link:../runtime-core
       lit:
         specifier: ^3.3.3
         version: 3.3.3

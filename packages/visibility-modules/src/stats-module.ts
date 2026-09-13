@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
-@customElement('stats-module')
+@customElement('fdx-stats-module')
 export class StatsModule extends LitElement {
   static styles = css`
     :host {

@@ -4,9 +4,9 @@ function App() {
 
   return (
     <>
-      <milestone-module />
-      <stats-module />
-      <ping-module />
+      <fdx-milestone-module />
+      <fdx-stats-module />
+      <fdx-ping-module />
     </>
   )
 }

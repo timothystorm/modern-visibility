@@ -20,7 +20,7 @@
 ### Task 1: Define the Lazy Service Contract
 
 **Files:**
-- Modify: `packages/runtime-contract/src/FdxRuntimeContract.ts`
+- Modify: `packages/runtime-core/src/FdxRuntimeContract.ts`
 
 **Interfaces:**
 - Consumes: `ShipmentsService` from `./ShipmentsService`.
@@ -32,6 +32,6 @@
 - [ ] Define a local intersection type for `globalThis` that maps
   `RUNTIME_KEY` to `Promise<FdxRuntimeContract> | undefined`.
 - [ ] Run
-  `pnpm exec tsc -p packages/runtime-contract/tsconfig.json --noEmit --incremental false`.
-- [ ] Run `pnpm --filter @fedex-prism/runtime-contract build`.
+  `pnpm exec tsc -p packages/runtime-core/tsconfig.json --noEmit --incremental false`.
+- [ ] Run `pnpm --filter @fedex-prism/runtime-core build`.
 - [ ] Do not stage, commit, or push.

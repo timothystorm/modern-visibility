@@ -1,10 +1,10 @@
 import type {ShipmentsService} from './services/ShipmentsService'
 
 /**
- * The KernelContract interface defines the contract for the FedEx Visibility Runtime. It provides access to various
+ * The RuntimeContract interface defines the contract for the FedEx Visibility Runtime. It provides access to various
  * services.
  */
-export interface KernelContract {
+export interface RuntimeContract {
   getShipmentsService(): Promise<ShipmentsService>
 }
 
@@ -14,7 +14,7 @@ const RUNTIME_KEY = Symbol.for('@fedex-prism/visibility-runtime.v1')
 
 // The RuntimeGlobal type extends the globalThis type to include an optional property for the FedEx Visibility Runtime.
 // This allows us to safely access the runtime instance from the global scope without TypeScript errors.
-type RuntimeGlobal = typeof globalThis & { [RUNTIME_KEY]?: Promise<KernelContract> }
+type RuntimeGlobal = typeof globalThis & { [RUNTIME_KEY]?: Promise<RuntimeContract> }
 
 /**
  * Retrieves the FedEx Visibility Runtime from the global scope. If the runtime has not been initialized, an error is
@@ -22,24 +22,24 @@ type RuntimeGlobal = typeof globalThis & { [RUNTIME_KEY]?: Promise<KernelContrac
  *
  * @return A promise that resolves to the runtime instance.
  */
-export function getRuntime(): Promise<KernelContract> {
+export function getFdxRuntime(): Promise<RuntimeContract> {
   const runtime = (globalThis as RuntimeGlobal)[RUNTIME_KEY]
   if (!runtime) {
-    throw new Error('FedEx Visibility Runtime has not been initialized.')
+    throw new Error('FedEx Runtime has not been initialized.')
   }
   return runtime
 }
 
 /**
- * Installs the FedEx Visibility Runtime into the global scope. This function should be called once during application
+ * Installs the FedEx Runtime into the global scope. This function should be called once during application
  * initialization.
  *
  * @param runtime - The runtime instance or a promise that resolves to the runtime instance.
  */
-export function installRuntime(runtime: KernelContract | Promise<KernelContract>): void {
+export function installFdxRuntime(runtime: RuntimeContract | Promise<RuntimeContract>): void {
   const globalRuntime = globalThis as RuntimeGlobal
   if (globalRuntime[RUNTIME_KEY]) {
-    throw new Error('FedEx Visibility Runtime has already been initialized.')
+    throw new Error('FedEx Runtime has already been initialized.')
   }
   globalRuntime[RUNTIME_KEY] = Promise.resolve(runtime)
 }

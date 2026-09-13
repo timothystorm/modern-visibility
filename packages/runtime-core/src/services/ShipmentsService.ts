@@ -1,4 +1,4 @@
-import type {Shipment} from '@fedex-prism/visibility-domain'
+import type {Shipment} from '../Shipment'
 
 /**
  * The NextToken type represents a pagination token used to retrieve the next page of shipments.

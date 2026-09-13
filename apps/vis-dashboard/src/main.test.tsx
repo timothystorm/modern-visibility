@@ -2,12 +2,13 @@
 
 import { expect, test, vi } from 'vitest'
 
-test('renders the ping module into the vis-dashboard root', async () => {
+test('renders shipment data from the shared runtime', async () => {
   document.body.innerHTML = '<div id="root"></div>'
 
   await import('./main')
 
   await vi.waitFor(() => {
-    expect(document.querySelector('#root ping-module')).not.toBeNull()
+    const pingModule = document.querySelector('#root fdx-ping-module')
+    expect(pingModule?.shadowRoot?.textContent).toContain('Shipments: 1')
   })
 })
